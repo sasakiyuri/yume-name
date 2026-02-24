@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>名前変換ページ</title>
+<style>
+body{
+  font-family:sans-serif;
+  background:#f5f5f5;
+  padding:20px;
+}
+
+.input-area{
+  margin-bottom:20px;
+}
+
+.scene{
+  position:relative;
+  max-width:700px;
+  margin-bottom:40px;
+}
+
+.scene img{
+  width:100%;
+  display:block;
+}
+
+.name{
+  position:absolute;
+  color:#ffffff;
+  font-weight:bold;
+  text-shadow:0 0 6px rgba(0,0,0,0.8);
+}
+</style>
+</head>
+<body>
+<h2>名前入力</h2>
+<div class="scene">
+<img src="scene1.png">
+<div class="name" id="name1" style="top:70%;left:20%;">苗字 名前</div>
+</div>
+<script>
+const last = document.getElementById("last");
+const first = document.getElementById("first");
+const nick = document.getElementById("nick");
+
+const name1 = document.getElementById("name1");
+
+function update(){
+  const full = (last.value + " " + first.value).trim();
+  name1.textContent = full || "苗字 名前";
+}
+
+last.addEventListener("input",update);
+first.addEventListener("input",update);
+nick.addEventListener("input",update);
+</script>
+</body>
+</html>
